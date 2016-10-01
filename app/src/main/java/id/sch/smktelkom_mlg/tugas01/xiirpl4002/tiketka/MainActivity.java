@@ -5,17 +5,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    RadioButton rbD, rbB;
     CheckBox cbPulang, cbPergi, cbPP;
     EditText etNama, etAlamat, etTelp, etNama2, etID, etNamaKA, etAsal, etTujuan, etTgl, etTime;
-    TextView tvHasil, tvHasil2, tvHasil3, tvHasil4, tvHasil5, tvHasil6, tvHasil7;
+    TextView tvHasil, tvHasil2, tvHasil3, tvHasil4, tvHasil5, tvHasil6, tvHasil7, tvHasil8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        rbD = (RadioButton) findViewById(R.id.radiButtonDewasa);
+        rbB = (RadioButton) findViewById(R.id.radiButtonBayi);
 
         cbPergi = (CheckBox) findViewById(R.id.checkBoxPergi);
         cbPulang = (CheckBox) findViewById(R.id.checkBoxPulang);
@@ -39,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         tvHasil5 = (TextView) findViewById(R.id.textViewHasil5);
         tvHasil6 = (TextView) findViewById(R.id.textViewHasil6);
         tvHasil7 = (TextView) findViewById(R.id.textViewHasil7);
+        tvHasil8 = (TextView) findViewById(R.id.textViewHasil8);
 
         findViewById(R.id.buttonOK).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +73,20 @@ public class MainActivity extends AppCompatActivity {
         if (isValid()) {
             String namaKA = etNamaKA.getText().toString();
             tvHasil2.setText(namaKA);
+
+            String type = null;
+            if (rbD.isChecked()) {
+                type = rbD.getText().toString()
+            } else if (rbB.isChecked()) {
+                type = rbB.getText().toString();
+            }
+
+            if (type == null) {
+                tvHasil8.setText("Belum memilih type");
+            } else {
+                tvHasil8.setText("Type : " + type);
+            }
+
             String nama = etNama2.getText().toString();
             tvHasil3.setText("NAMA : " + nama);
             String id = etID.getText().toString();

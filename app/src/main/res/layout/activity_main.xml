@@ -291,6 +291,12 @@ ASAL/origin  " />
             android:textSize="16dp" />
 
         <TextView
+            android:id="@+id/textViewHasil8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text" />
+
+        <TextView
             android:id="@+id/textViewHasil3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
