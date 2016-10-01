@@ -58,9 +58,13 @@ public class MainActivity extends AppCompatActivity {
     private void doClick() {
         String hasil = "PESANAN TIKET : ";
         int startlen = hasil.length();
-        if (cbPergi.isChecked()) hasil += cbPergi.getText() + "\n";
-        if (cbPulang.isChecked()) hasil += cbPulang.getText() + "\n";
-        if (cbPP.isChecked()) hasil += cbPP.getText() + "\n";
+        if (cbPergi.isChecked()) {
+            hasil = cbPergi.getText().toString();
+        } else if (cbPulang.isChecked()) {
+            hasil = cbPulang.getText().toString();
+        } else if (cbPP.isChecked()) {
+            hasil = cbPP.getText().toString();
+        }
 
         if (hasil.length() == startlen) hasil += "Tidak ada pada Pilihan";
         String tujuan = etTujuan.getText().toString();
@@ -76,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
             String type = null;
             if (rbD.isChecked()) {
-                type = rbD.getText().toString()
+                type = rbD.getText().toString();
             } else if (rbB.isChecked()) {
                 type = rbB.getText().toString();
             }
